@@ -1,17 +1,21 @@
 import pandas as pd
-import utilities.preProc as preProc
+import preProc as preProc
 import pickle
 
 from sklearn.feature_extraction.text import TfidfVectorizer as TFIV
 
-train = pd.read_csv('../../data/labeledtrainData.tsv', header=0, delimiter="\t", quoting=3)
+#Load labeled training data
+train = pd.read_csv('labeledtrainData.tsv', header=0, delimiter="\t", quoting=3)
 
+#The column on which we will predict
 predCol = train['sentiment']
 
-pickle.dump(predCol,open("../../classifier/logisticRegression/predCol","wb"))                
+pickle.dump(predCol,open("predCol","wb"))                
 
+#List for storing cleaned up training data
 trainData = []
 
+#Loop counter
 numRevs = len(train['review'])
 
 for i in range(0,numRevs):
@@ -19,13 +23,17 @@ for i in range(0,numRevs):
     if( (i+1)%2000 == 0 ):
             
             print ("Train Review %d of %d\n" % ( i+1, numRevs ))
-            
-    trainData.append(" ".join(preProc.Sentiment_to_wordlist(train['review'][i])))
+    
+    #Clean each review> Please look at the definition of the sentimentToWordlist function in the preproc.py script        
+    trainData.append(" ".join(preProc.sentimentToWordlist(train['review'][i])))
 
+#Load test data
 test = pd.read_csv('../../data/testData.tsv', header=0, delimiter="\t", quoting=3 )
 
+#List for storing cleaned up test data
 testdata = []
 
+#Loop counter
 numRevs = len(test['review'])
 
 for i in range(0,numRevs):
@@ -33,9 +41,11 @@ for i in range(0,numRevs):
     if( (i+1)%2000 == 0 ):
             
             print ("Test Review %d of %d\n" % ( i+1, numRevs ))
-            
-    testdata.append(" ".join(preProc.Sentiment_to_wordlist(test['review'][i])))
+    
+    #Clean each review> Please look at the definition of the sentimentToWordlist function in the preproc.py script        
+    testdata.append(" ".join(preProc.sentimentToWordlist(test['review'][i])))
 
+#Define/build TfidfVectorizer
 print("Defining TFIDF Vectorizer")        
 
 tfIdfVec = TFIV(
