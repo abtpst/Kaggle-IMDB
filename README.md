@@ -4,12 +4,21 @@ Here I am trying to solve the sentiment analysis problem for movie reviews. The 
 
 https://www.kaggle.com/c/word2vec-nlp-tutorial
 
-I will be using python as my programming language.
+I will be using python as my programming language. For this, I have used the Anaconda 2.7 package.
 
-I have used three different classifiers to solve this problem. All of the classifiers have a common pre processing step
+I have used three different classifiers to solve this problem. All of the classifiers have a common pre processing step where I perform data cleanup and then use TfidfVectorizer for feature selection
 
-**Fit and Trasnform**
+**Instructions to run**
 
-Before I can build my classifiers I need to format the training and test data. I will convert the data into a form that can be used by the classifier. I will use sklearn's TfidfVectorizer. The purpose of the vectorizer is to create an underlying term document matrix from the data. This allows us to define which terms/words are important for prediction. This also involves data cleanup. TfidfVectorizer can handle some of the cleanup, but i have also explicitly performed most of the cleanup before feeding the data to TfidfVectorizer.
+1. Clone this git repo to a suitable location on your machine.
 
-Please go through the well documented `vectorize.py` script to understand how TfidfVectorizer is built.
+2. Download and unzip the following data files
+
+	testData.tsv 	
+	labeledTrainData.tsv
+	
+	from https://www.kaggle.com/c/word2vec-nlp-tutorial/data and store them in the `data` folder
+
+3. Run the `classify.py` script in the `imdbMain` package. This will make predictions as per all three algorithms.
+
+4. Once the script has terminated, the final predictions should be in the `results` folder
