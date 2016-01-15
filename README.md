@@ -8,7 +8,7 @@ I will be using python as my programming language. For this, I have used the Ana
 
 I have used three different classifiers to solve this problem. All of the classifiers have a common pre processing step where I perform data cleanup and then use TfidfVectorizer for feature selection
 
-**Instructions to run**
+##Instructions to run
 
 1. Clone this git repo to a suitable location on your machine.
 
@@ -23,7 +23,8 @@ I have used three different classifiers to solve this problem. All of the classi
 
 4. Once the script has terminated, the final predictions should be in the `results` folder
 
-**Explanation**
+##Explanation
+
 Here is a description of the components
 
 1.  `classify.py` in the `imdbMain` package
@@ -44,7 +45,7 @@ Here is a description of the components
 
     This script is responsible for cleaning up the data and making it suitable for feature selection. It has a function `sentimentToWordlist` that takes a raw movie review as input and performs the following steps
     
-    1. Use BeautifulSoup library to remove the HTML/XML tags (e.g., <br />)
+    1. Use BeautifulSoup library to remove the HTML/XML tags (e.g., `<br/>`)
     2. Check and remove/keep smileys, numbers and stopwords as indicated by the various flags
     3. Convert all text to lowercase
     4. Return a list of words
