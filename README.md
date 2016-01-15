@@ -24,6 +24,7 @@ I have used three different classifiers to solve this problem. All of the classi
 4. Once the script has terminated, the final predictions should be in the `results` folder
 
 **Explanation**
+
 Here is a description of the components
 
 1. `classify.py` in the `imdbMain` package
