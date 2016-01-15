@@ -61,3 +61,5 @@ Here is a description of the components
 ##What I observed
 
 1. MNB is the fastest classifier for making predictions. It gives me around 93% accuracy. LogReg takes the longest but gives me around 96% accuracy. SGD is about 96% accurate.
+2.  Experimenting with `TfidfVectorizer` parameters can give significant gains in accuracy. For example the optimal `ngram_range` is (1-5).
+3.  Including numbers and smileys as valid parts of text gave me dramatic gains in accuracy.
