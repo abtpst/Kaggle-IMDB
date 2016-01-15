@@ -22,3 +22,12 @@ I have used three different classifiers to solve this problem. All of the classi
 3. Run the `classify.py` script in the `imdbMain` package. This will make predictions as per all three algorithms.
 
 4. Once the script has terminated, the final predictions should be in the `results` folder
+
+**Explanation**
+Here is a description of the components
+
+1. `classify.py` in the `imdbMain` package
+    This is the driver script. It runs the code for feature selection and classification.
+
+2. `vectorize.py` in the `util` package
+    This script is responsible for feature selection using `TfidfVectorizer`. Before that, it also calls the function for data cleanup.
